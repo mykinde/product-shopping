@@ -45,6 +45,10 @@
                                                 @endif
                                             </td>
                                             <td>
+                                                <a href="{{ route('products.show', $product->id) }}" class="btn btn-sm btn-secondary">
+                                                    <i class="bi bi-pencil"></i> VIEW
+                                                </a>
+                                                
                                                 <a href="{{ route('products.edit', $product->id) }}" class="btn btn-sm btn-warning">
                                                     <i class="bi bi-pencil"></i> Edit
                                                 </a>
