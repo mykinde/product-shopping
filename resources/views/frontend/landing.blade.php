@@ -21,8 +21,11 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="/welcome">Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="/landing">Features</a></li>
+          <li class="nav-item"><a class="nav-link" href="/login">Sellers</a></li>
+           <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+              <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
         </ul>
         <button class="btn btn-warning position-relative" onclick="viewCart()">
           Cart <span class="badge bg-danger cart-badge" id="cartCount">0</span>

@@ -60,6 +60,12 @@
         { id: 4, name: 'Product D', category: 'Fashion', price: 6000, city: 'Lagos', description: 'Trendy fashion accessory' },
         { id: 5, name: 'Product E', category: 'Electronics', price: 30000, city: 'Port Harcourt', description: 'Latest model electronics device' },
         { id: 6, name: 'Product F', category: 'Home Appliances', price: 18500, city: 'Abuja', description: 'Modern kitchen appliance' },
+        { id: 7, name: 'Product A', category: 'Electronics', price: 15000, city: 'Lagos', description: 'A high-quality electronic product' },
+        { id: 8, name: 'Product B', category: 'Fashion', price: 7500, city: 'Abuja', description: 'Stylish and comfortable fashion wear' },
+        { id: 9, name: 'Product C', category: 'Home Appliances', price: 22000, city: 'Kano', description: 'Efficient and durable home appliance' },
+        { id: 10, name: 'Product D', category: 'Fashion', price: 6000, city: 'Lagos', description: 'Trendy fashion accessory' },
+        { id: 11, name: 'Product E', category: 'Electronics', price: 30000, city: 'Port Harcourt', description: 'Latest model electronics device' },
+        { id: 12, name: 'Product F', category: 'Home Appliances', price: 18500, city: 'Abuja', description: 'Modern kitchen appliance' }, 
     ];
 
     const productList = document.getElementById('productList');
