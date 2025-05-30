@@ -12,9 +12,11 @@ class FrontendController extends Controller
 {
     public function landing()
 {
-    $featuredProducts = Product::where('is_featured', true)->take(8)->get();
+    //$featuredProducts = Product::where('is_featured', true)->take(8)->get();  
+	// return view('frontend.landing',	compact('featuredProducts'));
+	 $products = Product::with('category')->latest()->paginate(10);
 
-    return view('frontend.landing', compact('featuredProducts'));
+    return view('frontend.landing', compact('products'));
 }
     
     public function about() {
