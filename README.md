@@ -1,4 +1,4 @@
-# Laravel Starter
+# Laravel Product Shopping
 
 
 
@@ -10,7 +10,7 @@
 
 ## About Repository
 
-A very simple Laravel 12 + Vue 3 + AdminLTE 3 based Curd Starter template for SPA Application.
+A very simple Laravel 12 + Bootstrap 5 + Mobile First CSS Styling Application.
 <p align="center">
 <img src="https://i.imgur.com/111111mZAHbUL.png">
 
@@ -19,11 +19,11 @@ A very simple Laravel 12 + Vue 3 + AdminLTE 3 based Curd Starter template for SP
 ## Tech Specification
 
 - Laravel 12
-- React/Vue + VueRouter
+- Bootstrap
 - Laravel Breeze
-- Admin LTE 3 + Bootstrap 4 + Font Awesome 5
+- Bootstrap 5 + Font Awesome 5
 - PHPUnit Test Case/Test Coverage
-- Moodle LMS + AI
+- Mobile First CSS Styling + AI
 
 ## Features
 
@@ -79,13 +79,6 @@ vendor/bin/phpunit
 vendor/bin/phpunit --testsuite Feature
 ```
 
-#### Code Coverage Report
-
-```bash
-# reports is a directory name
-vendor/bin/phpunit --coverage-html reports/
-```
-A `reports` directory has been created for code coverage report. Open the dashboard.html.
 
 
 ## Installation 
