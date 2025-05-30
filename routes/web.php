@@ -25,6 +25,9 @@ use App\Http\Controllers\OrderController;
 Route::middleware(['auth'])->group(function () {
     Route::get('/products/all', [ProductController::class, 'all'])->name('products.all');
     Route::resource('products', ProductController::class);
+  Route::get('/products', [ProductController::class, 'index'])->name('products');
+
+
     Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
     Route::post('/cart', [CartController::class, 'store'])->name('cart.store');
     Route::delete('/cart/{cart}', [CartController::class, 'destroy'])->name('cart.destroy');
@@ -32,6 +35,10 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/orders', [OrderController::class, 'store'])->name('orders.store');
     Route::post('/cart', [CartController::class, 'store'])->name('cart.store');
 });
+
+
+
+// Correct route definition:
 
 // routes/web.php
 use App\Http\Controllers\FrontendController;

@@ -10,10 +10,14 @@ use App\Models\User;
 
 class FrontendController extends Controller
 {
-     public function landing()
-    {
-        return view('frontend.landing');
-    } public function about() {
+    public function landing()
+{
+    $featuredProducts = Product::where('is_featured', true)->take(8)->get();
+
+    return view('frontend.landing', compact('featuredProducts'));
+}
+    
+    public function about() {
         return view('pages.about');
     }
 
