@@ -63,7 +63,7 @@
 
   <script>
     const products = [
-      { id: 1, name: 'Wireless Earbuds', price: 15000, img: 'https://i.imgur.com/50eJv7A.png' },
+      { id: 1, name: 'Wireless Earbuds', price: 15000, img: 'https://i.imgur.com/GokvTqI.png' },
       { id: 2, name: 'Smart Watch', price: 25000, img: 'https://i.imgur.com/50eJv7A.png' },
       { id: 3, name: 'Bluetooth Speaker', price: 18000, img: 'https://i.imgur.com/50eJv7A.png' },
       { id: 4, name: 'Fitness Tracker', price: 12000, img: 'https://i.imgur.com/50eJv7A.png' }
