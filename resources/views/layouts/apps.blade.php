@@ -1,71 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>@yield('title', 'User Manager')</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ config('app.name', 'YourCompany') }}</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.1/dist/tailwind.min.css" rel="stylesheet">
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="bg-light">
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="{{ route('users.index') }}">User Manager</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
-      aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarContent">
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" href="{{ route('users.index') }}">Users</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{ route('users.create') }}">Create</a>
-        </li>
-
-        @guest
-          <li class="nav-item">
-            <a class="nav-link" href="{{ route('login') }}">Login</a>
-          </li>
-          @if (Route::has('register'))
-            <li class="nav-item">
-              <a class="nav-link" href="{{ route('register') }}">Register</a>
-            </li>
-          @endif
-        @else
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-               data-bs-toggle="dropdown" aria-expanded="false">
-              {{ Auth::user()->name }}
+<body class="bg-white text-gray-800 font-sans antialiased">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md fixed w-full top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="{{ url('/') }}" class="text-xl font-bold text-blue-600">
+                {{ config('app.name', 'YourCompany') }}
             </a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="{{ route('profile.edit') }}">Profile</a></li>
-              <li>
-                <form method="POST" action="{{ route('logout') }}">
-                  @csrf
-                  <button type="submit" class="dropdown-item">Logout</button>
-                </form>
-              </li>
-            </ul>
-          </li>
-        @endguest
-      </ul>
-    </div>
-  </div>
-</nav>
+            <div class="hidden md:flex space-x-6 text-sm font-semibold">
+                <a href="{{ url('/') }}" class="hover:text-blue-600">Home</a>
+                <a href="{{ url('/about') }}" class="hover:text-blue-600">About</a>
+                <a href="{{ url('/products') }}" class="hover:text-blue-600">Products</a>
+                <a href="{{ url('/faq') }}" class="hover:text-blue-600">FAQ</a>
+                <a href="{{ url('/contact') }}" class="hover:text-blue-600">Contact</a>
+                <a href="{{ url('/terms') }}" class="hover:text-blue-600">Terms</a>
+                <a href="{{ url('/privacy') }}" class="hover:text-blue-600">Privacy</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="mobile-menu-btn" class="text-gray-700 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <a href="{{ url('/') }}" class="block px-4 py-2 hover:bg-gray-100">Home</a>
+            <a href="{{ url('/about') }}" class="block px-4 py-2 hover:bg-gray-100">About</a>
+            <a href="{{ url('/products') }}" class="block px-4 py-2 hover:bg-gray-100">Products</a>
+            <a href="{{ url('/faq') }}" class="block px-4 py-2 hover:bg-gray-100">FAQ</a>
+            <a href="{{ url('/contact') }}" class="block px-4 py-2 hover:bg-gray-100">Contact</a>
+            <a href="{{ url('/terms') }}" class="block px-4 py-2 hover:bg-gray-100">Terms</a>
+            <a href="{{ url('/privacy') }}" class="block px-4 py-2 hover:bg-gray-100">Privacy</a>
+        </div>
+    </nav>
 
-<main class="container py-4">
-  @yield('content')
-</main>
+    <!-- Main Content -->
+    <main class="pt-24">
+        @yield('content')
+    </main>
 
-<footer class="bg-light text-center text-muted py-3 border-top fixed-bottom">
-  <div class="container">
-    <small>&copy; {{ now()->year }} YourCompanyName. All rights reserved.</small>
-  </div>
-</footer>
+    <!-- Footer -->
+    <footer class="bg-gray-100 text-center text-sm text-gray-600 py-6 mt-12">
+        <div class="container mx-auto px-4">
+            <p>&copy; {{ date('Y') }} {{ config('app.name', 'YourCompany') }}. All rights reserved.</p>
+            <div class="mt-2 space-x-4">
+                <a href="{{ url('/terms') }}" class="hover:underline">Terms</a>
+                <a href="{{ url('/privacy') }}" class="hover:underline">Privacy</a>
+                <a href="{{ url('/contact') }}" class="hover:underline">Contact</a>
+            </div>
+        </div>
+    </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('mobile-menu-btn').addEventListener('click', function () {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+    </script>
 </body>
 </html>

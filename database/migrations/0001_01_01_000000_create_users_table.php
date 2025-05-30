@@ -21,7 +21,9 @@ return new class extends Migration
         $table->string('city', 100)->nullable();
         $table->text('address')->nullable();
         $table->enum('role', ['admin', 'user'])->default('user');
-            $table->timestamps();
+        $table->timestamp('email_verified_at')->nullable(); 
+        $table->string('remember_token', 100)->nullable();
+        $table->timestamps();
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {

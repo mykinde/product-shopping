@@ -29,6 +29,12 @@ class UserFactory extends Factory
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),
             'remember_token' => Str::random(10),
+            'city' => $this->faker->city(),
+             'company' => $this->faker->company,
+            'phone' => $this->faker->phoneNumber(),
+            'role' => 'user', // or 'admin' if you use roles
+            'created_at' => now(),
+            'updated_at' => now(),
         ];
     }
 

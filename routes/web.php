@@ -3,9 +3,6 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -34,10 +31,21 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
     Route::post('/orders', [OrderController::class, 'store'])->name('orders.store');
     Route::post('/cart', [CartController::class, 'store'])->name('cart.store');
-
-        
-
 });
+
+// routes/web.php
+use App\Http\Controllers\FrontendController;
+Route::get('/', [FrontendController::class, 'landing'])->name('landing');
+Route::get('/about', [FrontendController::class, 'about'])->name('about');
+Route::get('/terms', [FrontendController::class, 'terms'])->name('terms');
+Route::get('/privacy', [FrontendController::class, 'privacy'])->name('privacy');
+Route::get('/faq', [FrontendController::class, 'faq'])->name('faq');
+Route::get('/services', [FrontendController::class, 'services'])->name('services');
+
+use App\Http\Controllers\ContactController;
+
+Route::get('/contact', [ContactController::class, 'show'])->name('contact.show');
+Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
 
 
 
@@ -45,6 +53,5 @@ use App\Http\Controllers\UserController;
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::resource('categories', CategoryController::class);
     Route::resource('users', UserController::class); // You'd need to scaffold UserController too
-
 });
 
